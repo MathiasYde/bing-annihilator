@@ -29,7 +29,7 @@
   * Chrome: ✅
   * Safari: 🤷‍♂️
   * Edge: 🤷‍♂️
-  * Brave: 🤷‍♂️
+  * Brave: ✅
   * Firefox: 🤷‍♂️
   * Opera: 🤷‍♂️
   * Internet Explorer: ❌
