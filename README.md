@@ -1,4 +1,4 @@
-# bing-annihilator
+# Bing Annihilator
  Automatically redirect Bing search results to Google
  
  # Usage
