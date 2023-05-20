@@ -1,14 +1,20 @@
+const redirectHostnamePrefix = "https://www.google.com/search";
 
+function onChromeTabCreated(tab) {
+  const url = new URL(tab.pendingUrl);
+
+  if (url.hostname !== "www.bing.com") { return; }
+  if (url.search === "") { return; }
+
+  chrome.tabs.update(tab.id, {
+    url: `${redirectHostnamePrefix}${url.search}`
+  })
+}
 
 chrome.tabs.onCreated.addListener((tab) => {
   try {
-    newUrl = new URL(tab.pendingUrl);
-
-    //Check if the newly created tab directs to bing and has a search parameter
-    if (newUrl.hostname === "www.bing.com" && newUrl.search !== "") {
-      //Change domain to google.com with the search parameter
-      chrome.tabs.update(tab.id, {url: `https://www.google.com/search${new URL(tab.pendingUrl).search}`});
-    }
+    onChromeTabCreated(tab);
+  } catch (error) {
+    console.log(error);
   }
-  catch (error) {}
 });
